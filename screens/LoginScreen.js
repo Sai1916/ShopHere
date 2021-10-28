@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {StyleSheet, Image, Text, ImageBackground, View, TextInput, TouchableOpacity } from 'react-native';
-import {MaterialCommunityIcons} from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import FIcon from 'react-native-vector-icons/Feather';
 
 const LoginScreen = ({navigation}) => {
   return (
@@ -9,22 +10,32 @@ const LoginScreen = ({navigation}) => {
       <ImageBackground source={require('../assets/bgImage.jpg')} resizeMode="cover" style={styles.bg}>
         <View>
             <View style={styles.logoContainer}>
-              <Image source={require('../assets/logo.webp')} style={styles.logo}/>
+                <Image source={require('../assets/logo.webp')} style={styles.logo}/>
                 <Text style={styles.text}>ShopHere</Text>
             </View>
             <View style={styles.form}>
               <View style={styles.inputContainer}>
-                <View>
-                  <MaterialCommunityIcons name="email" size={24} />
+                <View style={styles.icon}>
+                  <Icon name="email" size={24} color="black"/>
                   <TextInput placeholder="Email" style={styles.input}/>
                 </View>
-                <TextInput placeholder="password" style={styles.input}/>
+                <View style={styles.icon}>
+                  <FIcon name="lock" size={24} color="black"/>
+                  <TextInput placeholder="Password" style={styles.input}/>
+                </View>
+              </View>
+              <View style={styles.rp}>
+                <View style={styles.rem}>
+                  <Text>Remember me</Text>
+                </View>
+                <Text>Forgot Password?</Text>
               </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.push('CartScreen')}>
                     <Text style={styles.btntext}>Login</Text>
                 </TouchableOpacity>
                 <View style={styles.signtext}>
-                  <Text>Don't have an account? SignUp</Text>
+                  <Text>Don't have an account?</Text>
+                  <Text style={styles.signup}> SignUp</Text>
                 </View>
             </View>
         </View>
@@ -36,7 +47,6 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
     height: '100%',
     width: '100%',
     alignItems: 'center',
@@ -44,6 +54,7 @@ const styles = StyleSheet.create({
   text:{
     color:'white',
     fontSize: 15,
+    fontWeight:'bold',
   },
   bg:{
       width:'100%',
@@ -73,15 +84,21 @@ const styles = StyleSheet.create({
   },
   input:{
     height:40,
-    borderBottomWidth:1,
-    borderColor:'black',
     color:'white',
     opacity:1,
-    marginHorizontal:40,
+  },
+  icon:{
+    flexDirection:'row',
+    alignItems:'center',
+    borderBottomWidth:1,
+    borderColor:'black',
     marginVertical:10,
   },
+  inputContainer:{
+    marginHorizontal:30,
+  },
   button:{
-      padding: 16,
+      padding: 8,
       width:'70%',
       alignSelf:'center',
       alignItems:'center',
@@ -89,12 +106,26 @@ const styles = StyleSheet.create({
       marginVertical: 20,
       backgroundColor:'#DB4700',
   },
+  rp:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    marginHorizontal:30,
+  },
+  rem:{
+    flexDirection:'row',
+  },
   btntext:{
     fontSize:22,
     color:'white',
     fontWeight:'bold',
   },
   signtext:{
+    flexDirection:'row',
     alignItems:'center',
+    justifyContent:'center',
+  },
+  signup:{
+    borderBottomWidth:1,
   },
 });
