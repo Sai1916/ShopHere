@@ -2,6 +2,7 @@
 import React from 'react';
 import {StyleSheet, Image, Text, ImageBackground, View, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import FIcon from 'react-native-vector-icons/Feather';
 
 const LoginScreen = ({navigation}) => {
@@ -26,6 +27,7 @@ const LoginScreen = ({navigation}) => {
               </View>
               <View style={styles.rp}>
                 <View style={styles.rem}>
+                  <AntDesign name="checkcircle" size={14}/>
                   <Text>Remember me</Text>
                 </View>
                 <Text>Forgot Password?</Text>
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
   },
   rem:{
     flexDirection:'row',
+    alignItems:'center',
   },
   btntext:{
     fontSize:22,

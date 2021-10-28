@@ -21,10 +21,10 @@ export default ItemLeft;
 const styles = StyleSheet.create({
     container:{
         height:160,
-        // width:200,
         alignItems:'center',
         justifyContent:'center',
         flexDirection:'column',
+        marginVertical:5,
     },
     image:{
         height:130,

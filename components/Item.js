@@ -19,5 +19,9 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         marginHorizontal:20,
+        marginVertical:5,
+        alignItems:'center',
+        borderBottomWidth:1,
+        borderColor:'lightgray',
     },
 });
